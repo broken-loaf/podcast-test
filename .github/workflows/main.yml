@@ -6,5 +6,11 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - name: Install dependencies
+      run: pip install pyyaml
     - name: Run Feed Generator
-      uses: broken-loaf/podcast-generator@main
+      run: python /home/runner/work/podcast-test/podcast-test/feed.py
